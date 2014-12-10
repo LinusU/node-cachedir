@@ -1,5 +1,11 @@
 {
   "name": "cachedir",
   "version": "0.1.0",
-  "main": "index.js"
+  "license": "MIT",
+  "author": "Linus Unnebäck <linus@folkdatorn.se>",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/LinusU/node-cachedir.git"
+  }
 }
