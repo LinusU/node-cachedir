@@ -1,22 +1,21 @@
 var os = require('os')
-var env = process.env
+var path = require('path')
 
-var implementation
-
-switch (os.type()) {
-  case 'Darwin':
-    implementation = function (id) {
-      return env.HOME + '/Library/Caches/' + id
-    }
-    break
-  case 'Linux':
-    implementation = function (id) {
-      return env.HOME + '/.cache/' + id
-    }
-    break
-  default:
-    throw new Error('Your OS is currently not supported by node-cachedir.')
+function linux (id) {
+  return path.join(os.homedir(), '.cache', id)
 }
+
+function darwin (id) {
+  return path.join(os.homedir(), 'Library', 'Caches', id)
+}
+
+var implementation = (function () {
+  switch (os.platform()) {
+    case 'linux': return linux
+    case 'darwin': return darwin
+    default: throw new Error('Your OS is currently not supported by node-cachedir.')
+  }
+}())
 
 module.exports = function (id) {
   if (typeof id !== 'string') {
