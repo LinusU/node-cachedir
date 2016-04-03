@@ -11,9 +11,8 @@ npm install cachedir
 ## Usage
 
 ```javascript
-var cachedir = require('cachedir');
+var cachedir = require('cachedir')
+var path = cachedir('linusu')
 
-var path = cachedir('linusu');
-
-// `dir` now contains the path under which you should store cached files
+// `path` now contains the path under which you should store cached files
 ```
