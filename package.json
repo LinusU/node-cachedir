@@ -6,9 +6,11 @@
   "main": "index.js",
   "repository": "LinusU/node-cachedir",
   "scripts": {
-    "test": "standard"
+    "test": "standard && mocha"
   },
   "devDependencies": {
+    "mocha": "^2.4.5",
+    "proxyquire": "^1.7.4",
     "standard": "^6.0.8"
   }
 }
