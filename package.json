@@ -4,10 +4,7 @@
   "license": "MIT",
   "author": "Linus Unnebäck <linus@folkdatorn.se>",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/LinusU/node-cachedir.git"
-  },
+  "repository": "LinusU/node-cachedir",
   "scripts": {
     "test": "standard"
   },
