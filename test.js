@@ -1,11 +1,13 @@
 /* eslint-env mocha */
 
+var os = require('os')
 var assert = require('assert')
 var proxyquire = require('proxyquire')
 
+var home = os.homedir()
 var platforms = [
-  ['linux', '$HOME/.cache/linusu'],
-  ['darwin', '$HOME/Library/Caches/linusu']
+  ['linux', home + '/.cache/linusu'],
+  ['darwin', home + '/Library/Caches/linusu']
 ]
 
 platforms.forEach(function (platform) {
@@ -14,7 +16,6 @@ platforms.forEach(function (platform) {
 
     before(function () {
       var os = {
-        homedir: function () { return '$HOME' },
         platform: function () { return platform[0] }
       }
 
