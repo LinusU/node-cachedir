@@ -12,5 +12,8 @@
     "mocha": "^2.4.5",
     "proxyquire": "^1.7.4",
     "standard": "^6.0.8"
+  },
+  "dependencies": {
+    "os-homedir": "^1.0.1"
   }
 }

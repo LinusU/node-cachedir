@@ -1,12 +1,13 @@
 var os = require('os')
 var path = require('path')
+var homedir = require('os-homedir')
 
 function linux (id) {
-  return path.join(os.homedir(), '.cache', id)
+  return path.join(homedir(), '.cache', id)
 }
 
 function darwin (id) {
-  return path.join(os.homedir(), 'Library', 'Caches', id)
+  return path.join(homedir(), 'Library', 'Caches', id)
 }
 
 var implementation = (function () {
