@@ -6,7 +6,8 @@ var proxyquire = require('proxyquire')
 
 var platforms = [
   ['linux', homedir() + '/.cache/linusu'],
-  ['darwin', homedir() + '/Library/Caches/linusu']
+  ['darwin', homedir() + '/Library/Caches/linusu'],
+  ['win32', homedir() + '/AppData/Local/linusu/Cache']
 ]
 
 platforms.forEach(function (platform) {
@@ -21,12 +22,26 @@ platforms.forEach(function (platform) {
       cachedir = proxyquire('./', { os: os })
     })
 
-    it('should give correct path', function () {
+    it('should give the correct path', function () {
       var actual = cachedir('linusu')
       var expected = platform[1]
 
       assert.equal(actual, expected)
     })
+
+    if (platform[0] === 'win32') {
+      describe('when LOCALAPPDATA is set', function () {
+        it('should give the correct path', function () {
+          var oldLocalAppData = process.env.LOCALAPPDATA
+          process.env.LOCALAPPDATA = 'X:/LocalAppData'
+          var actual = cachedir('linusu')
+          process.env.LOCALAPPDATA = oldLocalAppData
+          var expected = 'X:/LocalAppData/linusu/Cache'
+
+          assert.equal(actual, expected)
+        })
+      })
+    }
 
     it('should throw on bad input', function () {
       assert.throws(function () { cachedir() })
