@@ -10,10 +10,16 @@ function darwin (id) {
   return path.join(homedir(), 'Library', 'Caches', id)
 }
 
+function win32 (id) {
+  var appData = process.env.LOCALAPPDATA || path.join(homedir(), 'AppData', 'Local')
+  return path.join(appData, id, 'Cache')
+}
+
 var implementation = (function () {
   switch (os.platform()) {
     case 'linux': return linux
     case 'darwin': return darwin
+    case 'win32': return win32
     default: throw new Error('Your OS is currently not supported by node-cachedir.')
   }
 }())
