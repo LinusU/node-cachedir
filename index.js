@@ -3,7 +3,7 @@ var path = require('path')
 var homedir = require('os-homedir')
 
 function linux (id) {
-  return path.join(homedir(), '.cache', id)
+  return process.env.XDG_CACHE_HOME || path.join(homedir(), '.cache', id)
 }
 
 function darwin (id) {
