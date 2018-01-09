@@ -18,6 +18,7 @@ function win32 (id) {
 
 var implementation = (function () {
   switch (os.platform()) {
+    case 'android':
     case 'linux': return linux
     case 'darwin': return darwin
     case 'win32': return win32
