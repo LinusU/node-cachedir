@@ -9,9 +9,9 @@
     "test": "standard && mocha"
   },
   "devDependencies": {
-    "mocha": "^2.4.5",
+    "mocha": "^4.1.0",
     "proxyquire": "^1.7.4",
-    "standard": "^6.0.8"
+    "standard": "^10.0.3"
   },
   "dependencies": {
     "os-homedir": "^1.0.1"
