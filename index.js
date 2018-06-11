@@ -2,7 +2,7 @@ var os = require('os')
 var path = require('path')
 var homedir = require('os-homedir')
 
-function linux (id) {
+function posix (id) {
   var cacheHome = process.env.XDG_CACHE_HOME || path.join(homedir(), '.cache')
   return path.join(cacheHome, id)
 }
@@ -18,11 +18,11 @@ function win32 (id) {
 
 var implementation = (function () {
   switch (os.platform()) {
-    case 'android':
-    case 'linux': return linux
+    case 'android': return posix
     case 'darwin': return darwin
+    case 'linux': return posix
     case 'win32': return win32
-    default: throw new Error('Your OS is currently not supported by node-cachedir.')
+    default: throw new Error('Your OS "' + os.platform() + '" is currently not supported by node-cachedir.')
   }
 }())
 
