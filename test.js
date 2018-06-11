@@ -5,8 +5,9 @@ var homedir = require('os-homedir')
 var proxyquire = require('proxyquire')
 
 var platforms = [
-  ['linux', homedir() + '/.cache/linusu'],
   ['darwin', homedir() + '/Library/Caches/linusu'],
+  ['freebsd', homedir() + '/.cache/linusu'],
+  ['linux', homedir() + '/.cache/linusu'],
   ['win32', homedir() + '/AppData/Local/linusu/Cache']
 ]
 
