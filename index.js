@@ -20,6 +20,7 @@ var implementation = (function () {
   switch (os.platform()) {
     case 'android': return posix
     case 'darwin': return darwin
+    case 'freebsd': return posix
     case 'linux': return posix
     case 'win32': return win32
     default: throw new Error('Your OS "' + os.platform() + '" is currently not supported by node-cachedir.')
