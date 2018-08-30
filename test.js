@@ -1,14 +1,14 @@
 /* eslint-env mocha */
 
 const assert = require('assert')
-const homedir = require('os-homedir')
+const os = require('os')
 const proxyquire = require('proxyquire')
 
 const platforms = [
-  ['darwin', `${homedir()}/Library/Caches/linusu`],
-  ['freebsd', `${homedir()}/.cache/linusu`],
-  ['linux', `${homedir()}/.cache/linusu`],
-  ['win32', `${homedir()}/AppData/Local/linusu/Cache`]
+  ['darwin', `${os.homedir()}/Library/Caches/linusu`],
+  ['freebsd', `${os.homedir()}/.cache/linusu`],
+  ['linux', `${os.homedir()}/.cache/linusu`],
+  ['win32', `${os.homedir()}/AppData/Local/linusu/Cache`]
 ]
 
 platforms.forEach(function (platform) {
