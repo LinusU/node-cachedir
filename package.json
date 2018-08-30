@@ -7,9 +7,7 @@
   "scripts": {
     "test": "standard && mocha"
   },
-  "dependencies": {
-    "os-homedir": "^1.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "mocha": "^5.2.0",
     "proxyquire": "^2.0.1",

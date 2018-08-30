@@ -1,18 +1,17 @@
 const os = require('os')
 const path = require('path')
-const homedir = require('os-homedir')
 
 function posix (id) {
-  const cacheHome = process.env.XDG_CACHE_HOME || path.join(homedir(), '.cache')
+  const cacheHome = process.env.XDG_CACHE_HOME || path.join(os.homedir(), '.cache')
   return path.join(cacheHome, id)
 }
 
 function darwin (id) {
-  return path.join(homedir(), 'Library', 'Caches', id)
+  return path.join(os.homedir(), 'Library', 'Caches', id)
 }
 
 function win32 (id) {
-  const appData = process.env.LOCALAPPDATA || path.join(homedir(), 'AppData', 'Local')
+  const appData = process.env.LOCALAPPDATA || path.join(os.homedir(), 'AppData', 'Local')
   return path.join(appData, id, 'Cache')
 }
 
