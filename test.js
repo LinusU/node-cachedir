@@ -8,6 +8,7 @@ const platforms = [
   ['darwin', `${os.homedir()}/Library/Caches/linusu`],
   ['freebsd', `${os.homedir()}/.cache/linusu`],
   ['linux', `${os.homedir()}/.cache/linusu`],
+  ['openbsd', `${os.homedir()}/.cache/linusu`],
   ['win32', `${os.homedir()}/AppData/Local/linusu/Cache`]
 ]
 
