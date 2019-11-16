@@ -28,7 +28,7 @@ platforms.forEach(function (platform) {
       const actual = cachedir('linusu')
       const expected = platform[1]
 
-      assert.equal(actual, expected)
+      assert.strictEqual(actual, expected)
     })
 
     if (platform[0] === 'win32') {
@@ -40,7 +40,7 @@ platforms.forEach(function (platform) {
           process.env.LOCALAPPDATA = oldLocalAppData
           const expected = 'X:/LocalAppData/linusu/Cache'
 
-          assert.equal(actual, expected)
+          assert.strictEqual(actual, expected)
         })
       })
     }
