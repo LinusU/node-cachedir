@@ -15,7 +15,7 @@ const platforms = [
   ['win32', `${os.homedir()}/AppData/Local/linusu/Cache`]
 ]
 
-platforms.forEach(function (platform) {
+platforms.forEach((platform) => {
   describe(platform[0], () => {
     let cachedir
 
@@ -58,5 +58,29 @@ platforms.forEach(function (platform) {
       assert.throws(() => cachedir('test!!'))
       assert.throws(() => cachedir(undefined))
     })
+  })
+})
+
+describe('fallback', () => {
+  it('should fallback to posix with warning', () => {
+    const originalError = console.error
+
+    try {
+      const logs = []
+      console.error = (msg) => logs.push(msg)
+
+      const os = { platform: () => 'test' }
+      const cachedir = proxyquire('./', { os })
+
+      const actual = cachedir('linusu')
+      const expected = `${os.homedir()}/.cache/linusu`
+      assert.strictEqual(actual, expected)
+
+      assert.deepStrictEqual(logs, [
+        `(node:${process.pid}) [cachedir] Warning: the platform "test" is not currently supported by node-cachedir, falling back to "posix". Please file an issue with your platform here: https://github.com/LinusU/node-cachedir/issues/new`
+      ])
+    } finally {
+      console.error = originalError
+    }
   })
 })

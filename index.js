@@ -17,16 +17,21 @@ function win32 (id) {
 
 const implementation = (function () {
   switch (os.platform()) {
-    case 'aix': return posix
-    case 'android': return posix
-    case 'darwin': return darwin
-    case 'freebsd': return posix
-    case 'linux': return posix
-    case 'netbsd': return posix
-    case 'openbsd': return posix
-    case 'sunos': return posix
-    case 'win32': return win32
-    default: throw new Error('Your OS "' + os.platform() + '" is currently not supported by node-cachedir.')
+    case 'darwin':
+      return darwin
+    case 'win32':
+      return win32
+    case 'aix':
+    case 'android':
+    case 'freebsd':
+    case 'linux':
+    case 'netbsd':
+    case 'openbsd':
+    case 'sunos':
+      return posix
+    default:
+      console.error(`(node:${process.pid}) [cachedir] Warning: the platform "${os.platform()}" is not currently supported by node-cachedir, falling back to "posix". Please file an issue with your platform here: https://github.com/LinusU/node-cachedir/issues/new`)
+      return posix
   }
 }())
 
