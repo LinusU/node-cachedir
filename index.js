@@ -17,6 +17,7 @@ function win32 (id) {
 
 const implementation = (function () {
   switch (os.platform()) {
+    case 'aix': return posix
     case 'android': return posix
     case 'darwin': return darwin
     case 'freebsd': return posix

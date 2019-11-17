@@ -5,6 +5,7 @@ const os = require('os')
 const proxyquire = require('proxyquire')
 
 const platforms = [
+  ['aix', `${os.homedir()}/.cache/linusu`],
   ['darwin', `${os.homedir()}/Library/Caches/linusu`],
   ['freebsd', `${os.homedir()}/.cache/linusu`],
   ['linux', `${os.homedir()}/.cache/linusu`],
