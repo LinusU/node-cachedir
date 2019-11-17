@@ -11,6 +11,7 @@ const platforms = [
   ['linux', `${os.homedir()}/.cache/linusu`],
   ['netbsd', `${os.homedir()}/.cache/linusu`],
   ['openbsd', `${os.homedir()}/.cache/linusu`],
+  ['sunos', `${os.homedir()}/.cache/linusu`],
   ['win32', `${os.homedir()}/AppData/Local/linusu/Cache`]
 ]
 

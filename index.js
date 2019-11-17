@@ -24,6 +24,7 @@ const implementation = (function () {
     case 'linux': return posix
     case 'netbsd': return posix
     case 'openbsd': return posix
+    case 'sunos': return posix
     case 'win32': return win32
     default: throw new Error('Your OS "' + os.platform() + '" is currently not supported by node-cachedir.')
   }
