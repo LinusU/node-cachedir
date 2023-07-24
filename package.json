@@ -5,13 +5,13 @@
   "repository": "LinusU/node-cachedir",
   "author": "Linus Unnebäck <linus@folkdatorn.se>",
   "scripts": {
-    "test": "standard && mocha"
+    "test": "standard && mocha && ts-readme-generator --check"
   },
-  "dependencies": {},
   "devDependencies": {
     "mocha": "^5.2.0",
     "proxyquire": "^2.0.1",
-    "standard": "^14.3.1"
+    "standard": "^14.3.1",
+    "ts-readme-generator": "^0.7.3"
   },
   "engines": {
     "node": ">=6"

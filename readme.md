@@ -22,6 +22,9 @@ console.log(cachedir('myapp'))
 
 ## API
 
-### `cachedir(name: string) => string`
+### `cachedir(id)`
+
+- `id` (`string`, required)
+- returns `string`
 
 Return path to an appropriate place to store cache files.
